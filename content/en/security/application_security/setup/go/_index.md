@@ -1,34 +1,39 @@
 ---
-title: Enabling AAP for Go
-code_lang: go
-type: multi-code-lang
-code_lang_weight: 20
+title: Enabling App and API Protection for Go
 aliases:
   - /security_platform/application_security/getting_started/go
   - /security/application_security/getting_started/go
-  - /security/application_security/enabling/tracing_libraries/threat_detection/go/
   - /security/application_security/threats/setup/threat_detection/go
   - /security/application_security/threats_detection/go
-  - /security/application_security/setup/aws/fargate/go
 further_reading:
-    - link: "/security/application_security/add-user-info/"
-      tag: "Documentation"
-      text: "Adding user information to traces"
-    - link: 'https://github.com/DataDog/dd-trace-go/tree/v1'
-      tag: "Source Code"
-      text: 'Go Datadog library source code'
-    - link: "/security/default_rules/?category=cat-application-security"
-      tag: "Documentation"
-      text: "OOTB App and API Protection Rules"
-    - link: "/security/application_security/troubleshooting"
-      tag: "Documentation"
-      text: "Troubleshooting App and API Protection"
+- link: "https://pkg.go.dev/github.com/DataDog/dd-trace-go/v2/appsec"
+  tag: "Documentation"
+  text: "Go Security API docs"
+- link: "/security/application_security/add-user-info/"
+  tag: "Documentation"
+  text: "Adding user information to traces"
+- link: 'https://github.com/DataDog/dd-trace-go'
+  tag: "Source Code"
+  text: 'Tracer source code'
+- link: 'https://github.com/DataDog/orchestrion'
+  tag: "Source Code"
+  text: 'Orchestrion source code'
+- link: "/security/default_rules/?category=cat-application-security"
+  tag: "Documentation"
+  text: "OOTB App and API Protection Rules"
+- link: "/security/application_security/troubleshooting"
+  tag: "Documentation"
+  text: "Troubleshooting App and API Protection"
 ---
 
 You can monitor App and API Protection for Go apps running in Docker, Kubernetes, and Amazon ECS.
 
 {{% appsec-getstarted %}}
+
+# Prerequisite
+
 - Your service is [supported][2].
+- You have one of the latest two version of [Go][4] installed (following the [Official Release Policy][5])
 
 ## Enabling threat detection
 ### Get started
@@ -77,6 +82,8 @@ Add the following environment variable value to your application container's Doc
 ```Dockerfile
 ENV DD_APPSEC_ENABLED=true
 ```
+
+A more detailed guide on how to create a fiting dockerfile is available [here][3]
 
 {{% /tab %}}
 {{% tab "Kubernetes" %}}
@@ -132,5 +139,8 @@ For more details, see [Standalone App and API Protection][standalone_billing_gui
 
 {{< partial name="whats-next/whats-next.html" >}}
 
-[1]: /security/application_security/setup/compatibility/go/#web-framework-compatibility
+[1]: /security/application_security/setup/compatibility/go/?tab=v2#web-framework-compatibility
 [2]: /security/application_security/setup/compatibility/go/
+[3]: /security/application_security/setup/go/dockerfile
+[4]: https://go.dev/
+[5]: https://go.dev/doc/devel/release#policy
